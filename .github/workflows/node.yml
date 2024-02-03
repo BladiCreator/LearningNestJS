@@ -22,10 +22,10 @@ jobs:
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies 📥
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: pnpm ci
+        run: npm ci
       - name: Build typescript 📦
-        run: pnpm run build && find dist/main.js
+        run: npm run build && find dist/main.js
       - name: Lint code 💅
-        run: pnpm run lint
+        run: npm run lint
       - name: Run tests ✅
-        run: pnpm run test
+        run: npm run test
